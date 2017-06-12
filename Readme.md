@@ -8,7 +8,7 @@ Headless Chromeを使ってTeam Spiritsの打刻を実行する
  - Yarn
 - Chrome 59+
 
-# Usage
+# Setup and usage
 
 ## Create Config
 
@@ -28,12 +28,9 @@ Edit like this:
 }
 ```
 
-## Execute
+## Usage
 
 ```sh
-$ npm start
-# done
+$ ./bin/dk.js -h
+$ ./bin/dk.js
 ```
-
-- 出社前であれば出社ボタンを押し、出社後であれば退社ボタンを押す
-- `tmp`以下にScreen Shotをいくつか出力する

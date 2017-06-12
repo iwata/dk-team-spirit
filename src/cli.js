@@ -11,12 +11,14 @@ process.on('SIGINT', async () => {
   throw new Error('user canceled');
 });
 
-module.exports.run = async ({url, username, password, verbose = false}) => {
+let chromy;
+
+module.exports.run = async ({url, username, password}, opt) => {
   try {
     let png;
-    const chromy = await login({url, username, password});
+    chromy = await login({url, username, password});
     console.info('Logged in');
-    if (verbose) {
+    if (opt.screenshot) {
       png = await chromy.screenshot();
       await writeFileAsync('./tmp/logged-in.png', png);
     }
@@ -31,8 +33,11 @@ module.exports.run = async ({url, username, password, verbose = false}) => {
     await chromy.wait(() => {
       return document.querySelector('.pw_jumpex');
     });
-    console.info('Go to a widget page');
-    if (verbose) {
+
+    if (opt.verbose) {
+      console.info('Go to a widget page');
+    }
+    if (opt.screenshot) {
       png = await chromy.screenshot();
       await writeFileAsync('./tmp/widget.png', png);
     }
@@ -41,25 +46,37 @@ module.exports.run = async ({url, username, password, verbose = false}) => {
     const hasEntered = await chromy.evaluate(() => {
       return document.querySelector('.pw_btnnst_dis');
     });
+    // 退社済みかどうか
+    const hasLeft = await chromy.evaluate(() => {
+      return document.querySelector('.pw_btnnet_dis');
+    });
 
-    if (hasEntered) {
-      // 退社
-      await chromy.click('#btnEtInput');
-      console.info('Left office');
+    if (opt.in) {
+      if (hasEntered) {
+        throw new Error('You have already entered');
+      } else {
+        await enter();
+      }
+    } else if (opt.out) {
+      if (hasLeft) {
+        throw new Error('You have already left');
+      } else {
+        await leave();
+      }
+    } else if (hasEntered) {
+      await leave();
     } else {
-      // 出社
-      await chromy.click('#btnStInput');
-      console.info('Entered office');
+      await enter();
     }
 
     await chromy.sleep(1000);
-    if (verbose) {
+    if (opt.screenshot) {
       png = await chromy.screenshot();
       await writeFileAsync('./tmp/complete.png', png);
     }
 
     await chromy.close();
-    console.info('Completed');
+    console.info('Finished!');
   } catch (e) {
     console.error(e);
     await chromy.close();
@@ -74,4 +91,16 @@ async function login({url, username, password}) {
   await chromy.click('#Login', {waitLoadEvent: true});
   await chromy.waitLoadEvent();
   return chromy;
+}
+
+// 出社
+async function enter() {
+  await chromy.click('#btnStInput');
+  console.info('Entered office');
+}
+
+// 退社
+async function leave() {
+  await chromy.click('#btnEtInput');
+  console.info('Left office');
 }

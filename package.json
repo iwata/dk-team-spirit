@@ -5,15 +5,14 @@
   "bin": {
     "dk": "./bin/dk.js"
   },
-  "scripts": {
-    "start": "./bin/dk.js"
-  },
   "main": "src/cli.js",
   "repository": "ssh://git@github.com/iwata/dk-team-spirit.git",
   "author": "Motonori Iwata",
   "license": "MIT",
   "dependencies": {
     "chromy": "^0.2.2",
+    "command-line-args": "^4.0.6",
+    "command-line-usage": "^4.0.0",
     "config": "^1.26.1"
   },
   "engines": {

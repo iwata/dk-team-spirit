@@ -20,6 +20,12 @@ ansi-align@^2.0.0:
   dependencies:
     string-width "^2.0.0"
 
+ansi-escape-sequences@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ansi-escape-sequences/-/ansi-escape-sequences-3.0.0.tgz#1c18394b6af9b76ff9a63509fa497669fd2ce53e"
+  dependencies:
+    array-back "^1.0.3"
+
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
@@ -27,6 +33,12 @@ ansi-regex@^2.0.0:
 ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
+
+array-back@^1.0.3, array-back@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/array-back/-/array-back-1.0.4.tgz#644ba7f095f7ffcf7c43b5f0dc39d3c1f03c063b"
+  dependencies:
+    typical "^2.6.0"
 
 array-find-index@^1.0.1:
   version "1.0.2"
@@ -158,6 +170,23 @@ colors@~0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-0.6.2.tgz#2423fe6678ac0c5dae8852e5d0e5be08c997abcc"
 
+command-line-args@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/command-line-args/-/command-line-args-4.0.6.tgz#0ff87a1dd159890dcaeb2a005abdae71e55059fc"
+  dependencies:
+    array-back "^1.0.4"
+    find-replace "^1.0.3"
+    typical "^2.6.1"
+
+command-line-usage@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/command-line-usage/-/command-line-usage-4.0.0.tgz#816b32788b58f9feba44d1e6dac60fcaeb29b5ea"
+  dependencies:
+    ansi-escape-sequences "^3.0.0"
+    array-back "^1.0.4"
+    table-layout "^0.4.0"
+    typical "^2.6.0"
+
 commander@2.1.x:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.1.0.tgz#d121bbae860d9992a3d517ba96f56588e47c6781"
@@ -213,7 +242,7 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
-deep-extend@~0.4.0:
+deep-extend@~0.4.0, deep-extend@~0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.2.tgz#48b699c27e334bf89f10892be432f6e4c7d34a7f"
 
@@ -254,6 +283,19 @@ execa@^0.4.0:
     object-assign "^4.0.1"
     path-key "^1.0.0"
     strip-eof "^1.0.0"
+
+feature-detect-es6@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/feature-detect-es6/-/feature-detect-es6-1.3.1.tgz#f888736af9cb0c91f55663bfa4762eb96ee7047f"
+  dependencies:
+    array-back "^1.0.3"
+
+find-replace@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/find-replace/-/find-replace-1.0.3.tgz#b88e7364d2d9c959559f388c66670d6130441fa0"
+  dependencies:
+    array-back "^1.0.4"
+    test-value "^2.1.0"
 
 find-up@^1.0.0:
   version "1.1.2"
@@ -466,6 +508,10 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
+lodash.padend@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.padend/-/lodash.padend-4.6.1.tgz#53ccba047d06e158d311f45da625f4e49e6f166e"
+
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -676,6 +722,10 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
+reduce-flatten@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/reduce-flatten/-/reduce-flatten-1.0.1.tgz#258c78efd153ddf93cb561237f61184f3696e327"
+
 registry-auth-token@^3.0.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/registry-auth-token/-/registry-auth-token-3.3.1.tgz#fb0d3289ee0d9ada2cbb52af5dfe66cb070d3006"
@@ -814,11 +864,28 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
+table-layout@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/table-layout/-/table-layout-0.4.0.tgz#c70ff0455d9add63b91f7c15a77926295c0e0e7d"
+  dependencies:
+    array-back "^1.0.4"
+    deep-extend "~0.4.1"
+    lodash.padend "^4.6.1"
+    typical "^2.6.0"
+    wordwrapjs "^2.0.0"
+
 term-size@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/term-size/-/term-size-0.1.1.tgz#87360b96396cab5760963714cda0d0cbeecad9ca"
   dependencies:
     execa "^0.4.0"
+
+test-value@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/test-value/-/test-value-2.1.0.tgz#11da6ff670f3471a73b625ca4f3fdcf7bb748291"
+  dependencies:
+    array-back "^1.0.3"
+    typical "^2.6.0"
 
 timed-out@^4.0.0:
   version "4.0.1"
@@ -831,6 +898,10 @@ tr46@~0.0.3:
 trim-newlines@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-1.0.0.tgz#5887966bb582a4503a41eb524f7d35011815a613"
+
+typical@^2.6.0, typical@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/typical/-/typical-2.6.1.tgz#5c080e5d661cbbe38259d2e70a3c7253e873881d"
 
 uglify-js@^2.6:
   version "2.8.28"
@@ -931,6 +1002,15 @@ wordwrap@0.0.2:
 wordwrap@~0.0.2:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
+
+wordwrapjs@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/wordwrapjs/-/wordwrapjs-2.0.0.tgz#ab55f695e6118da93858fdd70c053d1c5e01ac20"
+  dependencies:
+    array-back "^1.0.3"
+    feature-detect-es6 "^1.3.1"
+    reduce-flatten "^1.0.1"
+    typical "^2.6.0"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
