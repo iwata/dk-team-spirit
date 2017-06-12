@@ -24,8 +24,8 @@ module.exports.run = async ({url, username, password}, opt) => {
     }
 
     const iframeUrl = await chromy.evaluate(() => {
-        // 打刻widgetが存在するiframeのID
-        return document.getElementById('06610000000KOf2').src;
+        // 打刻widgetが存在するiframe
+        return document.querySelector('iframe[title="AtkWorkComponent"]').src;
     });
     await chromy.goto(iframeUrl);
 
