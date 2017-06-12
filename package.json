@@ -1,0 +1,22 @@
+{
+  "name": "dk-team-spirit",
+  "version": "0.0.1",
+  "description": "Dakoku via Team Spiriti",
+  "bin": {
+    "dk": "./bin/dk.js"
+  },
+  "scripts": {
+    "start": "./bin/dk.js"
+  },
+  "main": "src/cli.js",
+  "repository": "ssh://git@github.com/iwata/dk-team-spirit.git",
+  "author": "Motonori Iwata",
+  "license": "MIT",
+  "dependencies": {
+    "chromy": "^0.2.2",
+    "config": "^1.26.1"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  }
+}

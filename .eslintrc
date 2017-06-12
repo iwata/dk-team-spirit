@@ -1,0 +1,14 @@
+{
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parseOptions": {
+    "ecmaVersion": 2017
+  },
+  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "plugins": ["node"],
+  "rules": {
+    "node/no-unsupported-features": ["error", {"version": 8}]
+  }
+}
