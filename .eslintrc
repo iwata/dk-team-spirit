@@ -3,7 +3,7 @@
     "node": true,
     "es6": true
   },
-  "parseOptions": {
+  "parserOptions": {
     "ecmaVersion": 2017
   },
   "extends": ["eslint:recommended", "plugin:node/recommended"],

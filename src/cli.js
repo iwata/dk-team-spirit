@@ -1,22 +1,22 @@
 "use strict";
 
-const process = require('process');
-const fs      = require('fs');
-const {promisify} = require('util');
+const process        = require('process');
+const fs             = require('fs');
+const {promisify}    = require('util');
 const writeFileAsync = promisify(fs.writeFile);
-const Chromy  = require('chromy');
+const Chromy         = require('chromy');
 
 process.on('SIGINT', async () => {
   await Chromy.cleanup();
   throw new Error('user canceled');
 });
 
-let chromy;
+const chromy = new Chromy();
 
 module.exports.run = async ({url, username, password}, opt) => {
   try {
     let png;
-    chromy = await login({url, username, password});
+    await login({url, username, password});
     console.info('Logged in');
     if (opt.screenshot) {
       png = await chromy.screenshot();
@@ -84,13 +84,11 @@ module.exports.run = async ({url, username, password}, opt) => {
 };
 
 async function login({url, username, password}) {
-  const chromy = new Chromy({visible: false});
   await chromy.goto(url);
   await chromy.insert('#username', username);
   await chromy.insert('#password', password);
   await chromy.click('#Login', {waitLoadEvent: true});
   await chromy.waitLoadEvent();
-  return chromy;
 }
 
 // 出社
