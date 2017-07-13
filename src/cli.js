@@ -6,6 +6,8 @@ const {promisify}    = require('util');
 const writeFileAsync = promisify(fs.writeFile);
 const Chromy         = require('chromy');
 
+const BLOCK_URLS = ['*.ttf', '*.woff2', '*.ico', '*.gif', '*.png', '*.jpg', '*.jpeg', '*.webp' , '*.svg', '*.css']
+
 process.on('SIGINT', async () => {
   await Chromy.cleanup();
   throw new Error('user canceled');
@@ -84,6 +86,7 @@ module.exports.run = async ({url, username, password}, opt) => {
 };
 
 async function login({url, username, password}) {
+  await chromy.blockUrls(BLOCK_URLS)
   await chromy.goto(url);
   await chromy.insert('#username', username);
   await chromy.insert('#password', password);
